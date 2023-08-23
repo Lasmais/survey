@@ -18,7 +18,7 @@
 <div style="margin-left: 20px;">
   <h1 class="ion-padding" style="font-size:34px; font-weight:800; margin-top:0px;">{{surverForm.templateName}}
   </h1>
-  <ion-select interface="popover" [value]="selectedLanague" (ionChange)="onChangedLanague($event)" label="Język/Langauge:" class="fr" placeholder="Polski">
+  <ion-select interface="popover" [value]="selectedLanague" (ionChange)="onChangedLanague($event)" label="Langauge:" class="fr" placeholder="Polski">
     <ion-select-option value="pl">Polski</ion-select-option>
     <ion-select-option value="en">English</ion-select-option>
   </ion-select>
@@ -35,7 +35,7 @@
   </ion-card-content>  
 </ion-card>
 <div style="height: 100px;"></div>
- <ion-button *ngIf="!hasCloseButton" size="large" style="float: right; margin-right: 20px;" (click)="sendForm()">Wyślij</ion-button>  
+ <ion-button *ngIf="!hasCloseButton" size="large" style="float: right; margin-right: 20px;" (click)="sendForm()">Send</ion-button>  
  <div style="height: 200px;"></div>
 
 
