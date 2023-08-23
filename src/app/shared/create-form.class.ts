@@ -91,18 +91,13 @@ export class CreateForm implements ISerializable<CreateForm>
   public CreateSampleForm2(): Observable<CreateForm> {
       var form = new CreateForm();
     
-    form.title = 'Test';
+    form.title = 'Test 2';
     form.language = LanguageEnum.English;
     form.questions.push(this.CreateQuestionCheckBoxGroup(new DisplayText('Test1','Test1 2'),new DisplayText('test1','test1 2'),new DisplayText('test2','test2 2'),new DisplayText('test3','test3 2'),new DisplayText('test4','test4 2')));
     form.questions.push(this.CreateQuestionRadioGroupRating(new DisplayText('Test2','Test2 2'),new DisplayText('test1','test1 2'),new DisplayText('test2','test22 2'),new DisplayText('test5','test5 2')));
     form.questions.push(this.CreateQuestionRadioGroup(new DisplayText('test3?','test3 2?')));
     form.questions.push(this.CreateQuestionText(new DisplayText('test4','test4 2'), true));
     form.questions.push(this.CreateNumber(new DisplayText('test5','test5 2'),4, true));
-    var q9 = new QuestionPhone();
-    q9.isRequired = true;
-    q9.questionText = new DisplayText('test6', 'test6 2');
-    q9.errorMessage = 'Fill required fields!';
-    form.questions.push(q9);
 
 
     var q10 = new QuestionRadioGroup();
