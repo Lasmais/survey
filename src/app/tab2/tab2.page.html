@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <div style="float: left;">{{ 'tab2.tabName' | translate }}</div>
+      <div>
+        <ion-icon style="font-size: 30px; float: right;" name="trash-outline" (click)="clear()"></ion-icon>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content scroll="true">
+
+  <ion-list >
+    <ion-item (click)="viewForm(templateGroup)" *ngFor="let templateGroup of formsGrouped">
+      <ion-text color="" style="font-size: large; padding-top: 10px; padding-bottom: 10px; ">
+        {{templateGroup.templateName}}
+      </ion-text>
+      <ion-note slot="end" color="primary">{{templateGroup.forms.length}}</ion-note>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

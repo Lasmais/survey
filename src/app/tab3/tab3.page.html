@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{ 'tab3.tabName' | translate }}
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+     
+<ion-content [fullscreen]="true">
+
+  <ion-list >
+      <ion-item (click)="viewForm(template)" *ngFor="let template of latestTemplateForms">
+        <ion-text color="" style="font-size: large; padding-top: 10px; padding-bottom: 10px; ">
+          {{template.templateName}}
+        </ion-text>
+      </ion-item>
+  </ion-list>
+
+</ion-content>

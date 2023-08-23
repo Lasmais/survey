@@ -1,0 +1,34 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>{{templateGroup.templateName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="messagearea" scroll="true" padding="false" mode="ios">
+  <div class="ion-padding">
+    <ion-card *ngFor="let formResult of formResults">
+      <ion-card-header>
+        {{formResult.questionText}}
+      </ion-card-header>
+      <ion-card-content *ngIf="!formResult.hasCustomAnswer">
+        <app-bar-chart [labels]="formResult.answers" [data]="formResult.answersCount"></app-bar-chart>
+      </ion-card-content>
+      <ion-card-content *ngIf="formResult.hasCustomAnswer">
+        <ion-list>
+          <ion-item *ngFor="let answer of formResult.answers">
+            <ion-label>{{answer}}</ion-label>
+          </ion-item>
+        </ion-list>    
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<script>
+</script>
+
+

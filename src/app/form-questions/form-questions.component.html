@@ -1,0 +1,12 @@
+  <ion-card *ngFor="let question of form.questions" >
+    <ion-card-header>
+      <ion-card-title >
+        <ion-input *ngIf="isEditableForm()" [(ngModel)]="question.questionText" [readonly]="!isEditable"></ion-input>
+        <ion-label *ngIf="!isEditableForm()" >{{question.questionText}}</ion-label>
+      </ion-card-title>
+    </ion-card-header>
+    <!-- move to template -->
+    <ion-card-content>
+      <form-question [question]="question" [language]="form.language" [isDisabled]="true" [isEditable]="true"></form-question>
+    </ion-card-content>  
+  </ion-card>

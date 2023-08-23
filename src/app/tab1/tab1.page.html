@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <div style="float: left;">{{ 'tab1.tabName' | translate }}</div>
+      <div>
+        <ion-icon style="font-size: 30px; float: right;" name="add-circle-outline" (click)="defineFormTemplate()"></ion-icon>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>    
+    <ion-item-sliding *ngFor="let template of templates" >
+      <ion-item (click)="startForm(template)" >
+        <ion-text color="" style="font-size: large; padding-top: 10px; padding-bottom: 10px; ">
+          {{template.templateName}}
+        </ion-text>
+      </ion-item>
+      <ion-item-options side="start">
+        <ion-item-option (click)="edit(template)">Edit</ion-item-option>
+      </ion-item-options>
+      <ion-item-options side="end">
+        <ion-item-option (click)="delete(template)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  
+  <router-outlet></router-outlet>
+
+</ion-content>

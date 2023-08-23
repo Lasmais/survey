@@ -1,0 +1,38 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Create form {{template.templateName}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content scroll="true" padding="false" mode="ios">  
+
+    <ion-item>
+      <ion-label position="floating">Form name:</ion-label>
+      <ion-input [(ngModel)]="template.templateName" ></ion-input>
+    </ion-item>
+    
+<!--required template name-->
+    <!-- <ion-content class="messagearea" scroll="true" padding="false" mode="ios"> -->
+      <ion-card long-press (press)="onHold()" *ngFor="let question of template.templateForm.questions" >
+        <ion-card-header>
+          <ion-card-title>
+            <ion-item>
+              <ion-input style="font-size: medium;" [(ngModel)]="question.questionText"></ion-input>
+              <ion-icon style="font-size: 30px;" name="trash-outline" (click)="deleteQuestion(question)"></ion-icon>
+            </ion-item>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <form-question  [question]="question" [isDisabled]="false" [isEditable]="true"></form-question>
+        </ion-card-content>  
+      </ion-card>
+
+
+      <ion-button expand="block" (click)="CreatePopover()">Add question</ion-button>
+      <ion-button expand="block" (click)="saveTemplate(template)">Save form</ion-button>
+
+      
+  </ion-content> 

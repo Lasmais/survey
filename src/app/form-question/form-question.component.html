@@ -1,0 +1,30 @@
+<div *ngIf="isRadioGroup(question)">
+  <ion-radio-group [(ngModel)]="questionRadioGroup.answerText" >
+    <ion-item *ngFor="let radioButton of questionRadioGroup.radiogroup">
+      <ion-label *ngIf="!isEditableForm()" >{{radioButton.answerText.displayText(language)}}</ion-label>
+      <ion-input *ngIf="isEditableForm()" [(ngModel)]="radioButton.answerText" ></ion-input>
+      <ion-radio disabled="{{isDisabled}}" slot="start" [value]="radioButton.answerText"></ion-radio>
+    </ion-item>
+  </ion-radio-group>
+</div>  
+
+<div *ngIf="isCheckBox(question)">
+  <ion-item *ngFor="let checkbox of questionCheckboxGroup.checkboxes">
+    <ion-checkbox legacy="true" disabled="{{isDisabled}}" name="{{checkbox.answerText.displayText(language)}}"  [(ngModel)]="checkbox.isChecked"></ion-checkbox>
+    <ion-label *ngIf="!isEditableForm()" text-wrap>{{checkbox.answerText.displayText(language)}}</ion-label>
+    <ion-input *ngIf="isEditableForm()" [(ngModel)]="checkbox.answerText" [readonly]="!isEditable"></ion-input>
+  </ion-item>
+</div>
+
+<div *ngIf="isPhone(question)" class="input-group">
+<ion-item>
+  <ion-input style="width: 15%;"  name="answerText" disabled="{{isDisabled}}" maxlength="3" focusout="function(e) {window.scrollTo(0, 0)};"  type="tel" [(ngModel)]="questionPhone.extension" placeholder="(48)" ></ion-input>
+  <ion-input name="answerText" disabled="{{isDisabled}}" maxlength="11" dobMask focusout="function(e) {window.scrollTo(0, 0)};"  type="tel" [(ngModel)]="questionPhone.answerText" placeholder="222-222-222" ></ion-input>
+</ion-item>
+</div>
+<div *ngIf="isNumberQuestion(question)">
+  <ion-input  disabled="{{isDisabled}}" maxlength="4"  type="tel" [(ngModel)]="questionNumber.answerText" placeholder="1111" ></ion-input>
+</div>
+<div *ngIf="isText(question)">
+  <ion-input disabled="{{isDisabled}}" focusout="function(e) {window.scrollTo(0, 0)};" [(ngModel)]="questionText.answerText" ></ion-input>
+</div>
